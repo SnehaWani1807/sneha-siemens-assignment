@@ -1,0 +1,50 @@
+.popup {
+    font-family: arial;
+    :focus {
+        outline: none !important;
+      box-shadow: none !important;
+    }
+}
+
+.btn-cont {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    :focus {
+        outline: none !important;
+  box-shadow: none !important;
+    }
+ }
+
+ .ok {
+    margin-left: 13px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #294447;
+border-radius: 8px;
+opacity: 1;
+font-size: revert;
+width: 57px;
+}
+
+.success {
+    text-align: center;
+    font-family: arial;
+    font-size: 18px;
+letter-spacing: 0px;
+color: #294447;
+opacity: 1;
+}
+
+// .cross {
+//     float: right;
+//     padding-right: -30px;
+//     background: #00917E 0% 0% no-repeat padding-box;
+//     opacity: 1;
+//     border: none;
+//     border-radius: 10px;
+//     position: absolute;
+//     z-index: 10;
+//     top: 210px;
+//     left: 787px;
+//     color: white;
+//   }

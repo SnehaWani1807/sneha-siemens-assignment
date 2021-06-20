@@ -1,0 +1,107 @@
+<div class="conntainer">
+  <h1 class="emp-list">Employee List</h1>
+
+  <div class="add-button">
+    <button class="btn btn-secondary" (click)="openAddDialog()">Add</button>
+  </div>
+
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>
+            <form class="search-employee">
+              <input
+                matInput
+                aria-label="State"
+                [matAutocomplete]="auto"
+                [formControl]="empNameCtrl"
+                placeholder="Search by Name"
+                class="search-box"
+              />
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchByName($event.option.value)'>
+                <mat-option
+                  *ngFor="let employee of filteredEmployees | async"
+                  [value]="employee.name"
+                >
+                  <span>{{ employee.name }}</span> |
+                </mat-option>
+              </mat-autocomplete>
+            </form>
+          </td>
+          <td>
+            <form class="search-employee">
+                <input
+                  matInput
+                  aria-label="State"
+                  [matAutocomplete]="auto"
+                  [formControl]="empAddressCtrl"
+                  placeholder="Search by Address"
+                  class="search-box"
+                />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchByAddress($event.option.value)'>
+                  <mat-option
+                    *ngFor="let employee of filteredEmployeesByAddress | async"
+                    [value]="employee.address.street"
+                  >
+                    <span>{{ employee.address.street }}</span> |
+                  </mat-option>
+                </mat-autocomplete>
+              </form>
+          </td>
+          <td>
+            <form class="search-employee">
+                <input
+                  matInput
+                  aria-label="State"
+                  [matAutocomplete]="auto"
+                  [formControl]="empCompanyCtrl"
+                  placeholder="Search by Company"
+                  class="search-box"
+                />
+                <mat-autocomplete #auto="matAutocomplete" (optionSelected)='searchByCompany($event.option.value)'>
+                  <mat-option
+                    *ngFor="let employee of filteredEmployeesByCompany | async"
+                    [value]="employee.company.name"
+                  >
+                    <span>{{ employee.company.name }}</span> |
+                  </mat-option>
+                </mat-autocomplete>
+              </form>
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Company</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employeeList of employeeLists; let i = index">
+          <td>{{ employeeList.name }}</td>
+          <td>
+            {{ employeeList.address.street }} {{ employeeList.address.suite }}
+            {{ employeeList.address.city }} {{ employeeList.address.zipcode }}
+          </td>
+          <td>{{ employeeList.company.name }}</td>
+          <td class="actions">
+            <button
+              class="btn btn-secondary"
+              (click)="openDialog(employeeList.id, i)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-secondary"
+              (click)="deleteEmp(employeeList.id, i)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

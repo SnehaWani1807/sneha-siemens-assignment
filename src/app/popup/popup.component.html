@@ -1,0 +1,14 @@
+<div class="popup" *ngIf="editCheck">
+    <p mat-dialog-title class="success">Employee Details edited Successfully!</p>
+    <div class="btn-cont">
+      <button mat-button (click)="close()" class="ok">Ok</button>
+    </div>
+</div>
+
+<div class="popup" *ngIf="!editCheck">
+    <p mat-dialog-title class="success">Employee Details Added Successfully!</p>
+    <div class="btn-cont">
+      <button mat-button (click)="close()" class="ok">Ok</button>
+    </div>
+</div>
+

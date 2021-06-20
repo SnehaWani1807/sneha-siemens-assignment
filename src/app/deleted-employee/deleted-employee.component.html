@@ -1,0 +1,36 @@
+<div class="conntainer"  *ngIf="deletedEmployeeLists.length">
+    <h1 class="emp-list">Deleted Employee List</h1>
+    
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Company</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let deletedEmployeeList of deletedEmployeeLists; let i=index">
+                    <td>{{deletedEmployeeList.name}}</td>
+                    <td>{{deletedEmployeeList.address.street}} {{deletedEmployeeList.address.suite}} {{deletedEmployeeList.address.city}} {{deletedEmployeeList.address.zipcode}}</td>
+                    <td>{{deletedEmployeeList.company.name}}</td>
+                    <td class="actions">
+                        <button class="btn btn-secondary" (click)="restoreEmp(deletedEmployeeList.id, i)">Restore</button>
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>Sneha</td>
+                    <td>Wakad</td>
+                    <td>CTS</td>
+                    <td class="actions">
+                        <button class="btn btn-secondary">Restore</button>
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
